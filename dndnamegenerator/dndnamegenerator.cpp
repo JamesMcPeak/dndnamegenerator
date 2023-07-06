@@ -259,9 +259,9 @@ void AddControls(HWND hWnd) {
     //CreateWindowW(L"static", L"static field", WS_VISIBLE | WS_BORDER | SS_CENTER | WS_CHILD, 10, 30, 100, 20, hWnd, nullptr, nullptr, nullptr);
     //hEdit = CreateWindowW(L"edit", L"edit field", WS_VISIBLE | WS_BORDER | SS_LEFT | WS_CHILD, 10, 60, 100, 20, hWnd, nullptr, nullptr, nullptr);
 
-    hNationalitySelector = CreateWindowW(L"combobox", TEXT("random"), WS_VISIBLE | WS_BORDER | WS_CHILD | CBS_HASSTRINGS | CBS_DROPDOWN | WS_VSCROLL, 10, 30, 100, 500, hWnd, nullptr, nullptr, nullptr);
+    hNationalitySelector = CreateWindowW(L"combobox", TEXT("english"), WS_VISIBLE | WS_BORDER | WS_CHILD | CBS_HASSTRINGS | CBS_DROPDOWN | WS_VSCROLL, 10, 30, 100, 500, hWnd, nullptr, nullptr, nullptr);
 
-    ComboBox_AddString(hNationalitySelector, TEXT("random"));
+    //ComboBox_AddString(hNationalitySelector, TEXT("random"));
     ComboBox_AddString(hNationalitySelector, TEXT("english"));
     ComboBox_AddString(hNationalitySelector, TEXT("french"));
     ComboBox_AddString(hNationalitySelector, TEXT("spanish"));

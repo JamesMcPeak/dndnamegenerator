@@ -1,0 +1,30 @@
+{
+	"folders": {},
+	"connections": {
+		"sqlite_jdbc-18929cc1eb9-39bd0ca901c11fcd": {
+			"provider": "sqlite",
+			"driver": "sqlite_jdbc",
+			"name": "myDb.db",
+			"save-password": true,
+			"read-only": false,
+			"configuration": {
+				"database": "C:\\Users\\James\\Documents\\projects\\dndnamegenerator\\dndnamegenerator\\myDb.db",
+				"url": "jdbc:sqlite:C:\\Users\\James\\Documents\\projects\\dndnamegenerator\\dndnamegenerator\\myDb.db",
+				"type": "dev",
+				"auth-model": "native",
+				"handlers": {}
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"auto-close-transactions": false
+		}
+	}
+}

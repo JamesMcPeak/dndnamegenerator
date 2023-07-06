@@ -1,0 +1,14 @@
+merge tables into single nationality tables
+all name logic
+anglo-saxon
+mayan
+chinese personal
+medieval japanese
+medieval scottish
+medieval chinese
+korean personal
+english aristocratic
+tibetan
+germanic
+phonecian
+polynesian

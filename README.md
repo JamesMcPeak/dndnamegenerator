@@ -8,3 +8,5 @@ sqlite backend
 tied together with extremely sketchy C++
 
 currently a work in progress
+
+first prototype done!  currently the only languages finished are ones with the nice simple format of [Personal] [Family]

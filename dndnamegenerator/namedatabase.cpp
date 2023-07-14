@@ -26,6 +26,13 @@ bool namedatabase::store_name(char* name) {
 }
 
 std::string namedatabase::generate(std::string nationality, std::string gender, int length, int medieval, int aristocratic) {
+
+	if (nationality == "chinese") {
+		std::string personal = fetchname(nationality, "personal_one", gender, length, medieval, aristocratic) + fetchname(nationality, "personal_two", gender, length, medieval, aristocratic);
+		std::string family = fetchname(nationality, "family", "any", length, medieval, aristocratic);
+		return personal + " " + family;
+	}
+
 	std::string personal = fetchname(nationality, "personal", gender, length, medieval, aristocratic);
 	std::string family = fetchname(nationality, "family", "any", length, medieval, aristocratic);
 	return personal + " " + family;

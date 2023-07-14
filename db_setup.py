@@ -7,12 +7,13 @@ cur = con.cursor()
 
 while True:
     tablename = input("Table Name ==> ")
-    tabledata = input("Table Data ==> ")
-    data = tabledata.split(",")
-    cur.execute("CREATE TABLE IF NOT EXISTS " + tablename + "(name TEXT, length INT);")
-    for datum in data:
-        cur.execute("INSERT INTO " + tablename + "(name, length) VALUES ('" + datum.strip() + "', " + str(len(datum.strip()))+");")
+    columndata = input ("Column Data ==> ")
+    columntype = input("Column Type ==> ")
+    columngender = input("Column Gender ==> ")
+    names = columndata.split(",")
+    for name in names:
+        cur.execute("INSERT INTO " + tablename + "(name, type, gender, length, medieval, aristocratic) VALUES ('" + name.strip() + "', '" + columntype + "', '" + columngender + "', " + str(len(name.strip()))+", 'false', 'false');")
     con.commit()
-    print("Successfully created table " + tablename)
+    print("Successfully updated table " + tablename)
 
 con.close()

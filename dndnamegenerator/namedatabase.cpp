@@ -32,6 +32,11 @@ std::string namedatabase::generate(std::string nationality, std::string gender, 
 		std::string family = fetchname(nationality, "family", "any", length, medieval, aristocratic);
 		return personal + " " + family;
 	}
+	else if (nationality == "korean") {
+		std::string personal = fetchname(nationality, "personal_one", gender, length, medieval, aristocratic) + " " + fetchname(nationality, "personal_two", gender, length, medieval, aristocratic);
+		std::string family = fetchname(nationality, "family", "any", length, medieval, aristocratic);
+		return family + " " + personal;
+	}
 
 	std::string personal = fetchname(nationality, "personal", gender, length, medieval, aristocratic);
 	std::string family = fetchname(nationality, "family", "any", length, medieval, aristocratic);

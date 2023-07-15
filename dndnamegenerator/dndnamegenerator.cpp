@@ -11,6 +11,7 @@
 #include "utils.h"
 #include <iostream>
 #include <fstream>
+#include <sstream>
 
 void debugOutputToFile(std::string str) {
     std::ofstream myfile;
@@ -54,6 +55,7 @@ HWND hTypeSelector;
 HWND hGenderSelector;
 HWND hGenerate;
 HWND hNameOutputField;
+HWND hInfoField;
 namedatabase nameDB;
 
 void AddMenus(HWND);
@@ -191,6 +193,18 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 std::string nationality = toStdString(input_nationality);
                 std::string gender = toStdString(input_gender);
                 std::string result = nameDB.generate(nationality, gender);
+                if (nationality == "korean") {
+                    std::string familyname;
+                    std::istringstream namelist;
+                    namelist.str(result);
+                    std::getline(namelist, familyname, ' ');
+                    std::string info = "In this Korean name, the family name is " + familyname + ".";
+                    SetWindowTextA(hInfoField, (LPCSTR)info.c_str());
+                }
+                else {
+                    std::string info = "";
+                    SetWindowTextA(hInfoField, (LPCSTR)info.c_str());
+                }
                 debugOutputToFile(result);
                 SetWindowTextA(hNameOutputField, (LPCSTR)result.c_str());
                 break;
@@ -262,7 +276,6 @@ void AddControls(HWND hWnd) {
     hNationalitySelector = CreateWindowW(L"combobox", TEXT("english"), WS_VISIBLE | WS_BORDER | WS_CHILD | CBS_HASSTRINGS | CBS_DROPDOWN | WS_VSCROLL, 10, 30, 100, 500, hWnd, nullptr, nullptr, nullptr);
 
     //ComboBox_AddString(hNationalitySelector, TEXT("random"));
-    ComboBox_AddString(hNationalitySelector, TEXT("chinese"));
     ComboBox_AddString(hNationalitySelector, TEXT("english"));
     ComboBox_AddString(hNationalitySelector, TEXT("french"));
     ComboBox_AddString(hNationalitySelector, TEXT("spanish"));
@@ -273,6 +286,8 @@ void AddControls(HWND hWnd) {
     ComboBox_AddString(hNationalitySelector, TEXT("greek"));
     ComboBox_AddString(hNationalitySelector, TEXT("welsh"));
     ComboBox_AddString(hNationalitySelector, TEXT("armenian"));
+    ComboBox_AddString(hNationalitySelector, TEXT("chinese"));
+    ComboBox_AddString(hNationalitySelector, TEXT("korean"));
     ComboBox_AddString(hNationalitySelector, TEXT("cornish"));
     ComboBox_AddString(hNationalitySelector, TEXT("german"));
     ComboBox_AddString(hNationalitySelector, TEXT("dutch"));
@@ -299,4 +314,6 @@ void AddControls(HWND hWnd) {
     hGenerate = CreateWindowW(L"button", TEXT("Generate"), WS_VISIBLE | WS_BORDER | WS_CHILD, 10, 90, 100, 50, hWnd, (HMENU)BUTTON_GENERATE_NAME, nullptr, nullptr);
 
     hNameOutputField = CreateWindowW(L"edit", nullptr, WS_VISIBLE | SS_LEFT | WS_CHILD, 10, 150, 300, 200, hWnd, nullptr, nullptr, nullptr);
+
+    hInfoField = CreateWindowW(L"edit", nullptr, WS_VISIBLE | SS_LEFT | WS_CHILD, 120, 30, 600, 50, hWnd, nullptr, nullptr, nullptr);
 }

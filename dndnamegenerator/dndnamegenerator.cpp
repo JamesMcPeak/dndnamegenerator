@@ -201,6 +201,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                     std::string info = "In this Korean name, the family name is " + familyname + ".";
                     SetWindowTextA(hInfoField, (LPCSTR)info.c_str());
                 }
+                else if (nationality == "tibetan") {
+                    std::string info = "In this Tibetan name, both names are personal names.";
+                    SetWindowTextA(hInfoField, (LPCSTR)info.c_str());
+                }
                 else {
                     std::string info = "";
                     SetWindowTextA(hInfoField, (LPCSTR)info.c_str());
@@ -286,6 +290,7 @@ void AddControls(HWND hWnd) {
     ComboBox_AddString(hNationalitySelector, TEXT("greek"));
     ComboBox_AddString(hNationalitySelector, TEXT("welsh"));
     ComboBox_AddString(hNationalitySelector, TEXT("armenian"));
+    ComboBox_AddString(hNationalitySelector, TEXT("tibetan"));
     ComboBox_AddString(hNationalitySelector, TEXT("chinese"));
     ComboBox_AddString(hNationalitySelector, TEXT("korean"));
     ComboBox_AddString(hNationalitySelector, TEXT("cornish"));

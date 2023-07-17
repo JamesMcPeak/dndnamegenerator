@@ -3,7 +3,6 @@ anglo-saxon
 mayan
 medieval japanese
 medieval scottish
-korean personal
 tibetan
 germanic
 phonecian

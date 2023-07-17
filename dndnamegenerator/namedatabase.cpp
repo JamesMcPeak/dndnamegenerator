@@ -37,6 +37,10 @@ std::string namedatabase::generate(std::string nationality, std::string gender, 
 		std::string family = fetchname(nationality, "family", "any", length, medieval, aristocratic);
 		return family + " " + personal;
 	}
+	else if (nationality == "tibetan") {
+		std::string personal = fetchname(nationality, "personal", gender, length, medieval, aristocratic) + " " + fetchname(nationality, "personal", gender, length, medieval, aristocratic);
+		return personal;
+	}
 
 	std::string personal = fetchname(nationality, "personal", gender, length, medieval, aristocratic);
 	std::string family = fetchname(nationality, "family", "any", length, medieval, aristocratic);
@@ -48,7 +52,7 @@ std::string namedatabase::fetchname(std::string nationality, std::string type, s
 	std::string request = "SELECT * FROM " + nationality + " WHERE type = '" + type + "'";
 
 	if (gender != "any") {
-		request += " AND gender = '";
+		request += " AND gender = 'any' OR gender = '";
 		request += gender;
 		request += "'";
 	}

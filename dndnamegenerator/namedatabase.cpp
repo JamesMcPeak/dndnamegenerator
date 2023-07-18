@@ -2,6 +2,7 @@
 #include "sqlite/sqlite3.h"
 #include <string>
 #include <iostream>
+#include <algorithm>
 
 namedatabase::namedatabase() {
 	rc = sqlite3_open("myDb.db", &namedb);
@@ -40,6 +41,23 @@ std::string namedatabase::generate(std::string nationality, std::string gender, 
 	else if (nationality == "tibetan") {
 		std::string personal = fetchname(nationality, "personal", gender, length, medieval, aristocratic) + " " + fetchname(nationality, "personal", gender, length, medieval, aristocratic);
 		return personal;
+	}
+	else if (nationality == "phoenician") {
+		int nameclass = rand() % 6;
+		if (nameclass >= 4) {
+			std::string personal = fetchname(nationality, "personal", gender, length, medieval, aristocratic);
+			return personal;
+		}
+		else if (nameclass == 3) {
+			std::string personal = fetchname(nationality, "deity", gender, length, medieval, aristocratic) + fetchname(nationality, "suffix", gender, length, medieval, aristocratic);
+			return personal;
+		}
+		else {
+			std::string theophoric = fetchname(nationality, "deity", gender, length, medieval, aristocratic);
+			std::transform(theophoric.begin(), theophoric.end(), theophoric.begin(), ::tolower);
+			std::string personal = fetchname(nationality, "prefix", gender, length, medieval, aristocratic) + theophoric;
+			return personal;
+		}
 	}
 
 	std::string personal = fetchname(nationality, "personal", gender, length, medieval, aristocratic);

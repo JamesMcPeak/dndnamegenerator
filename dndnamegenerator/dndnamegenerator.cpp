@@ -288,6 +288,7 @@ void AddControls(HWND hWnd) {
     ComboBox_AddString(hNationalitySelector, TEXT("scottish"));
     ComboBox_AddString(hNationalitySelector, TEXT("indian"));
     ComboBox_AddString(hNationalitySelector, TEXT("greek"));
+    ComboBox_AddString(hNationalitySelector, TEXT("phoenician"));
     ComboBox_AddString(hNationalitySelector, TEXT("welsh"));
     ComboBox_AddString(hNationalitySelector, TEXT("armenian"));
     ComboBox_AddString(hNationalitySelector, TEXT("tibetan"));

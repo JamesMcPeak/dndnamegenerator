@@ -42,6 +42,10 @@ std::string namedatabase::generate(std::string nationality, std::string gender, 
 		std::string personal = fetchname(nationality, "personal", gender, length, medieval, aristocratic) + " " + fetchname(nationality, "personal", gender, length, medieval, aristocratic);
 		return personal;
 	}
+	else if (nationality == "anglosaxon") {
+		std::string personal = fetchname(nationality, "personal_one", gender, length, medieval, aristocratic) + fetchname(nationality, "personal_two", gender, length, medieval, aristocratic);
+		return personal;
+	}
 	else if (nationality == "phoenician") {
 		int nameclass = rand() % 6;
 		if (nameclass >= 4) {
@@ -70,9 +74,9 @@ std::string namedatabase::fetchname(std::string nationality, std::string type, s
 	std::string request = "SELECT * FROM " + nationality + " WHERE type = '" + type + "'";
 
 	if (gender != "any") {
-		request += " AND gender = 'any' OR gender = '";
+		request += " AND (gender = 'any' OR gender = '";
 		request += gender;
-		request += "'";
+		request += "')";
 	}
 
 	if (medieval == 1) {

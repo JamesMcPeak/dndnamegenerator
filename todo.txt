@@ -4,5 +4,4 @@ mayan
 medieval japanese
 medieval scottish
 germanic
-phonecian
 polynesian

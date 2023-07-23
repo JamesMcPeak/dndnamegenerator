@@ -1,5 +1,4 @@
 all name logic
-anglo-saxon
 mayan
 medieval japanese
 medieval scottish

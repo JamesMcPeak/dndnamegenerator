@@ -12,7 +12,7 @@ while True:
     columngender = input("Column Gender ==> ")
     names = columndata.split(",")
     for name in names:
-        cur.execute("INSERT INTO " + tablename + "(name, type, gender, length, medieval, aristocratic) VALUES ('" + name.strip() + "', '" + columntype + "', '" + columngender + "', " + str(len(name.strip()))+", 'false', 'false');")
+        cur.execute("INSERT INTO " + tablename + "(name, type, gender, length, medieval, aristocratic) VALUES ('" + name.strip() + "', '" + columntype + "', '" + columngender + "', " + str(len(name.strip()))+", 'true', 'false');")
     con.commit()
     print("Successfully updated table " + tablename)
 

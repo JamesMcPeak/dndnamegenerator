@@ -63,6 +63,10 @@ std::string namedatabase::generate(std::string nationality, std::string gender, 
 			return personal;
 		}
 	}
+	else if (nationality == "japanese" && medieval == 1) {
+		std::string personal = fetchname(nationality, "personal_one", gender, length, medieval, aristocratic) + fetchname(nationality, "personal_two", gender, length, medieval, aristocratic);
+		return personal;
+	}
 
 	std::string personal = fetchname(nationality, "personal", gender, length, medieval, aristocratic);
 	std::string family = fetchname(nationality, "family", "any", length, medieval, aristocratic);

@@ -53,6 +53,7 @@ HWND hEdit;
 HWND hNationalitySelector;
 HWND hTypeSelector;
 HWND hGenderSelector;
+HWND hMedievalSelector;
 HWND hGenerate;
 HWND hNameOutputField;
 HWND hInfoField;
@@ -317,10 +318,16 @@ void AddControls(HWND hWnd) {
 
     ComboBox_SetCurSel(hGenderSelector, 0);
 
+    hMedievalSelector = CreateWindowW(L"combobox", TEXT("any"), WS_VISIBLE | WS_BORDER | WS_CHILD | CBS_HASSTRINGS | CBS_DROPDOWN | WS_VSCROLL, 10, 90, 100, 500, hWnd, nullptr, nullptr, nullptr);
+    
+    ComboBox_AddString(hMedievalSelector, TEXT("medieval"));
+    ComboBox_AddString(hMedievalSelector, TEXT("modern"));
 
-    hGenerate = CreateWindowW(L"button", TEXT("Generate"), WS_VISIBLE | WS_BORDER | WS_CHILD, 10, 90, 100, 50, hWnd, (HMENU)BUTTON_GENERATE_NAME, nullptr, nullptr);
+    ComboBox_SetCurSel(hMedievalSelector, 0);
 
-    hNameOutputField = CreateWindowW(L"edit", nullptr, WS_VISIBLE | SS_LEFT | WS_CHILD, 10, 150, 300, 200, hWnd, nullptr, nullptr, nullptr);
+    hGenerate = CreateWindowW(L"button", TEXT("Generate"), WS_VISIBLE | WS_BORDER | WS_CHILD, 10, 120, 100, 50, hWnd, (HMENU)BUTTON_GENERATE_NAME, nullptr, nullptr);
+
+    hNameOutputField = CreateWindowW(L"edit", nullptr, WS_VISIBLE | SS_LEFT | WS_CHILD, 10, 180, 300, 200, hWnd, nullptr, nullptr, nullptr);
 
     hInfoField = CreateWindowW(L"edit", nullptr, WS_VISIBLE | SS_LEFT | WS_CHILD, 120, 30, 600, 50, hWnd, nullptr, nullptr, nullptr);
 }
